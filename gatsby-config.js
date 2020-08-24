@@ -38,5 +38,27 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.microCMS_API_KEY,
+        serviceId: "essentials_blog",
+        endpoint: "blog",
+        query: {
+          limit: 100,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.microCMS_API_KEY,
+        serviceId: "essentials_blog",
+        endpoint: "category",
+        query: {
+          limit: 100,
+        },
+      },
+    },
   ],
 }

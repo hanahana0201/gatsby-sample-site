@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         limit: blogPostPerPage,
         currentPage: i + 1, //現在のページ番号
         isFirst: i + 1 === 1, //最初のページ
-        isLast: i + 1 === blogPage, //最後のページ
+        isLast: i + 1 === blogPages, //最後のページ
       },
     })
   })

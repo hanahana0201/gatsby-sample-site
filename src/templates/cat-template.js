@@ -69,11 +69,12 @@ export default ({ data,location,pageContext }) => (
 )
 
 export const query = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query($catid: String!, $skip: Int!, $limit: Int!) {
     allMicrocmsBlog(
       sort: { fields: publishDate, order:DESC }
       skip: $skip
       limit: $limit
+      filter: { category: {elemMatch: { id: { eq: $catid }}}}
     ) {
       edges {
         node {

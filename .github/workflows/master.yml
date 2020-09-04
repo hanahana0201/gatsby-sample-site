@@ -28,4 +28,4 @@ jobs:
           ftp-username: ${{ secrets.FTP_USERNAME }} # FTPのユーザー名を設定
           ftp-password: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
           local-dir: public
-          git-ftp-args: --remote-root ./hanahana0201.xrsv.jp/public/mysite
+          git-ftp-args: --remote-root hanahana0201.xrsv.jp/public_html/mysite

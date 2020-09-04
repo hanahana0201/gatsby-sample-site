@@ -22,7 +22,7 @@ jobs:
           yarn build microCMS_API_KEY=${{ secrets.MICROCMS_API_KEY }}
 
       - name: FTP-Deploy-Action
-          uses: SamKirkland/FTP-Deploy-Action@3.1.1
+          uses: SamKirkland/FTP-Deploy-Action@master
           with:
             ftp-server: ${{ secrets.FTP_SERVER }} # FTPサーバーのURLを設定
             ftp-username: ${{ secrets.FTP_USERNAME }} # FTPのユーザー名を設定

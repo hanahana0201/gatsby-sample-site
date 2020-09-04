@@ -22,10 +22,10 @@ jobs:
           yarn build microCMS_API_KEY=${{ secrets.MICROCMS_API_KEY }}
 
       - name: FTP-Deploy-Action
-          uses: SamKirkland/FTP-Deploy-Action@master
-          with:
-            ftp-server: ${{ secrets.FTP_SERVER }} # FTPサーバーのURLを設定
-            ftp-username: ${{ secrets.FTP_USERNAME }} # FTPのユーザー名を設定
-            ftp-password: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
-            local-dir: public
-            git-ftp-args: --remote-root hanahana0201.xrsv.jp/public/mysite
+        uses: SamKirkland/FTP-Deploy-Action@master
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }} # FTPサーバーのURLを設定
+          ftp-username: ${{ secrets.FTP_USERNAME }} # FTPのユーザー名を設定
+          ftp-password: ${{ secrets.FTP_PASSWORD }} # FTPのパスワードを設定
+          local-dir: public
+          git-ftp-args: --remote-root hanahana0201.xrsv.jp/public/mysite

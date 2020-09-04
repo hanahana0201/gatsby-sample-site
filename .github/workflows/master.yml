@@ -19,7 +19,7 @@ jobs:
       - name: yarn install, build
         run: |
           yarn install
-          yarn build microCMS_API_KEY=${{ secrets.MICROCMS_API_KEY }}
+          microCMS_API_KEY=${{ secrets.MICROCMS_API_KEY }} yarn build
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@master

@@ -6,6 +6,7 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: `/mysite`,
   siteMetadata: {
     title: `ESSENTIALS`,
     description: `おいしい食材と食事を探求するサイト`,

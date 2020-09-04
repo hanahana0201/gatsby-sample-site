@@ -21,6 +21,7 @@ export default ({data}) => (
       <div className="catch">
         <h1>There is no love sincerer than<br /> the love of food.</h1>
         <p>食物を愛するよりも誠実な愛はない ― バーナード・ショー</p>
+        <p>GitHub Actionsで更新確認</p>
       </div>
       <div className="wave">
         <svg

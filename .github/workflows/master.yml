@@ -2,6 +2,7 @@ name: Deploy master
 
 on:
   repository_dispatch:
+    types: [update_post]
   push:
     branch:
       - master

@@ -50,7 +50,10 @@ module.exports = {
           },
           {
             endpoint: "category",
-          }
+          },
+          {
+            endpoint: "work",
+          },
         ],
       },
     },

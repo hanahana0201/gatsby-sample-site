@@ -100,7 +100,65 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   })
+
+  const workresult = await graphql(`
+    query {
+      allMicrocmsWork {
+        edges {
+          node {
+            id
+            slug
+            title
+          }
+          next {
+            title
+            slug
+          }
+          previous {
+            slug
+            title
+          }
+        }
+      }
+    }
+  `)
+
+  if (workresult.errors) {
+    reporter.panicOnBuild(`GraphQL のクエリでエラーが発生しました`)
+    return
+  }
+
+  workresult.data.allMicrocmsWork.edges.forEach(({ node,next,previous }) => {
+    createPage({
+      path: `/work/post/${node.slug}`,
+      component: path.resolve(`./src/templates/work-template.js`),
+      context: {
+        id: node.id,
+        next,
+        previous,
+      },
+    })
+  })
+
+  const workPostPerPage = 6 //1ページに表示する記事の数
+  const workPosts = workresult.data.allMicrocmsWork.edges.length //記事の総数
+  const workPages = Math.ceil(workPosts / workPostPerPage) //記事一覧ページの総数
+
+  Array.from({ length: workPages}).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/work/` : `/work/${i + 1}/`,
+      component: path.resolve("./src/templates/works-template.js"),
+      context: {
+        skip: workPostPerPage * i,
+        limit: workPostPerPage,
+        currentPage: i + 1, //現在のページ番号
+        isFirst: i + 1 === 1, //最初のページ
+        isLast: i + 1 === workPages, //最後のページ
+      },
+    })
+  })
 }
+
 
 exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions

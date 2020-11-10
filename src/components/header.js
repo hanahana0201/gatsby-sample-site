@@ -31,6 +31,9 @@ export default () => (
           <li>
             <Link to={`/blog/`}>BLOG</Link>
           </li>
+          <li>
+            <Link to={`/work/`}>WORKS</Link>
+          </li>
         </ul>
       </nav>
     </div>

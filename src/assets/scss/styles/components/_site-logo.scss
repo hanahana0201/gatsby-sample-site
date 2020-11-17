@@ -1,0 +1,20 @@
+//----------------------------------------------------
+// Components: Site Logo
+//----------------------------------------------------
+
+// Fix IE11 (Must height)
+$site-logo-width: 20em;
+$site-logo-height: $site-logo-width * 0.1718;
+
+.site-logo-link {
+  display: block;
+  flex: none;
+}
+
+.site-logo {
+  width: $site-logo-width;
+  height: $site-logo-height;
+  path {
+    fill: $black;
+  }
+}

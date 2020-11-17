@@ -16,13 +16,14 @@ module.exports = {
     fbappid: `XXXXXXXXXXXXXXXXXXXXXXXXXXX`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        nama: `images`,
-        path: `${__dirname}/src/images/`,
+        name: `images`,
+        path: `${__dirname}/src/assets/images/`,
       }
     },
     `gatsby-plugin-react-helmet`,
@@ -35,7 +36,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#477294`,
         display: `standalone`,
-        icon: `src/images/icon.png`,
+        icon: `src/assets/images/icon.png`,
       },
     },
     `gatsby-plugin-offline`,

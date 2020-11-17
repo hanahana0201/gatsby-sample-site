@@ -1,0 +1,53 @@
+//----------------------------------------------------
+// Project Stylesheet
+//----------------------------------------------------
+
+//----------------------------------------------------
+// / Setting
+//----------------------------------------------------
+
+// Project Variable
+$pjt-color-red: #f44336;
+$pjt-color-blue: #2196f3;
+$pjt-color-green: #4caf50;
+$pjt-color-yellow: #ffeb3b;
+$pjt-color-orange: #ff9800;
+$pjt-color-grey: #9e9e9e;
+$global-header-height: 56px;
+$global-header-height-mobile: 56px;
+$global-header-height-desktop: 64px;
+$global-header-height-wide: 72px;
+$global-border-radius: 3px;
+
+// MUSUBii Override Variable
+$font-sans: YakuHanJPs, "Noto Sans JP", Meiryo, sans-serif;
+//$font-serif: YakuHanMPs, "Noto Serif JP", Meiryo, serif;
+//$font-sans: YakuHanRPs, "M PLUS Rounded 1c", Meiryo, sans-serif;
+//$button-border-radius: $project-border-radius;
+//$input-border-radius: $project-border-radius;
+
+// Brand Variable
+$brand-color-twitter: #1da1f2;
+$brand-color-facebook: #3b5998;
+$brand-color-google-plus: #dd4b39;
+$brand-color-line: #00c300;
+$brand-color-hatena-bookmark: #00a4de;
+$brand-color-pocket: #ef4056;
+$brand-color-feedly: #2bb24c;
+$brand-color-rss: #f26522;
+
+//----------------------------------------------------
+// / Import
+//----------------------------------------------------
+
+@import "./configs/_import.scss";
+@import "./styles/_import.scss";
+
+//----------------------------------------------------
+// / Project
+//----------------------------------------------------
+
+body {
+  -webkit-print-color-adjust: exact;
+}
+

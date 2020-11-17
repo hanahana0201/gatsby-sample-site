@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/common/layout"
 
 import Imgix from "react-imgix"
 
-import SEO from "../components/seo"
-import htmlToText from "html-to-text"
+import SEO from "../components/common/seo"
+// import htmlToText from "html-to-text"
 
 export default ({data}) => (
   <Layout>

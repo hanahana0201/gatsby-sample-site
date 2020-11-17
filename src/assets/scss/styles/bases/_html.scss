@@ -1,0 +1,8 @@
+//----------------------------------------------------
+// Bases: HTML
+//----------------------------------------------------
+
+body {
+  transition: $global-transition-mode-change;
+  font-family: $font-serif;
+}

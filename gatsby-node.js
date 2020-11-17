@@ -4,6 +4,7 @@ const axios = require("axios");
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  // ブログのページの自動生成
   const blogresult = await graphql(`
     query {
       allMicrocmsBlog(sort: {fields: publishDate, order: DESC}) {
@@ -101,6 +102,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
+  // 制作実績のページの自動生成
   const workresult = await graphql(`
     query {
       allMicrocmsWork {

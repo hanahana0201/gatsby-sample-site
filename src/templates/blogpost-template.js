@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/common/layout"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faClock, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
@@ -12,7 +12,7 @@ import unified from "unified"
 import parse from "rehype-parse"
 import rehypeReact from "rehype-react"
 
-import SEO from "../components/seo"
+import SEO from "../components/common/seo"
 import htmlToText from "html-to-text"
 
 const renderAst = new rehypeReact({

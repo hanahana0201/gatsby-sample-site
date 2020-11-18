@@ -4,7 +4,6 @@ import React from "react"
 import Footer from "./footer"
 import Navbar from "../parts/navbar"
 
-// import "./layout.css"
 import "../../assets/scss/project.scss"
 
 import "@fortawesome/fontawesome-svg-core/styles.css"
@@ -14,10 +13,11 @@ config.autoAddCss = false
 export default ({ children }) => (
   <div>
     <Navbar />
-    {/*<Header />*/}
-
-    {children}
-
+    <div className="section is-main">
+      <div className="inner">
+        {children}
+      </div>
+    </div>
     <Footer />
   </div>
 )

@@ -12,17 +12,10 @@ export default () => (
           <div className="column">
             <div className="box is-flex is-bottom">
               <div className="box is-margin-right-sm">
-                <div className="logo">
                   <Link className="site-logo-link" to={`/`}>
                     <SiteLogo />
                   </Link>
-                </div>
               </div>
-            </div>
-          </div>
-          <div className="column">
-            <div className="box is-flex">
-              <Navbar />
             </div>
           </div>
         </div>

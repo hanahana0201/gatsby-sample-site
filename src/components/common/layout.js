@@ -2,6 +2,7 @@ import React from "react"
 
 import Header from "./header"
 import Footer from "./footer"
+import Navbar from "../parts/navbar"
 
 // import "./layout.css"
 import "../../assets/scss/project.scss"
@@ -12,6 +13,7 @@ config.autoAddCss = false
 
 export default ({ children }) => (
   <div>
+    <Navbar />
     <Header />
 
     {children}

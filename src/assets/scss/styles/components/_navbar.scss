@@ -1,7 +1,14 @@
+.navbar {
+  position: fixed;
+  right: 100px;
+  z-index: 20;
+}
+
 .navbar-menu {
-  display: none;
+  opacity: 0;
+  transition: all 0.5s;
   &.is-active {
-    display: block;
+    opacity: 1;
   }
 }
 
@@ -13,6 +20,7 @@
   position: relative;
   width: 3.25rem;
   margin-left: auto;
+  z-index: 30;
   span {
     background-color: currentColor;
     display: block;
@@ -47,4 +55,19 @@
       }
     }
   }
+}
+.navbar-start {
+  background: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin-top: -56px;
+  margin-right: -100px;
+}
+
+.navbar-item {
+  margin-top: .75rem;
 }

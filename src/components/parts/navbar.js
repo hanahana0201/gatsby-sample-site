@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import SiteLogo from "../../assets/images/site-logo"
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -39,6 +40,9 @@ const Navbar = class extends React.Component {
       >
         <div className="container">
           <div className="navbar-brand">
+            <Link className="site-logo-link" to={`/`}>
+              <SiteLogo />
+            </Link>
             {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}

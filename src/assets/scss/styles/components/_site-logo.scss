@@ -7,10 +7,7 @@ $site-logo-width: 20em;
 $site-logo-height: $site-logo-width * 0.1718;
 
 .site-logo-link {
-  position:fixed;
-  margin-top: -28px;
-  display: block;
-  flex: none;
+  padding: 1rem 1.5rem;
 }
 
 .site-logo {

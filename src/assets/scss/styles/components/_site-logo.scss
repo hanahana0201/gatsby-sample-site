@@ -3,17 +3,46 @@
 //----------------------------------------------------
 
 // Fix IE11 (Must height)
-$site-logo-width: 20em;
+$site-logo-width: 20rem;
 $site-logo-height: $site-logo-width * 0.1718;
 
-.site-logo-link {
-  padding: 3rem 1.5rem;
-}
+$site-fablet-logo-width: 12rem;
+$site-fablet-logo-height: $site-fablet-logo-width * 0.1718;
+
+$site-top-logo-width: 34rem;
+$site-top-logo-height: $site-top-logo-width * 0.1718;
+
+$site-top-fablet-logo-width: 18rem;
+$site-top-fablet-height: $site-top-fablet-logo-width * 0.1718;
 
 .site-logo {
   width: $site-logo-width;
   height: $site-logo-height;
   path {
     fill: $black;
+  }
+  &-link {
+    padding: 3rem 1.5rem;
+    @include mobile-fablet() {
+      padding: 1.5rem;
+    }
+  }
+  @include mobile-fablet() {
+  width: $site-fablet-logo-width;
+  height: $site-fablet-logo-height;
+  }
+  &.is-top {
+    width: $site-top-logo-width;
+    height: $site-top-logo-height;
+    &.is-light {
+      path {
+        fill: $white;
+      }
+      filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+    }
+    @include mobile-fablet() {
+      width: $site-top-fablet-logo-width;
+      height: $site-top-fablet-height;
+    }
   }
 }

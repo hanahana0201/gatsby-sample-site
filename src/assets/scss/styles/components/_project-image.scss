@@ -1,0 +1,24 @@
+//----------------------------------------------------
+// Components: Image
+//----------------------------------------------------
+
+.project-image {
+  &.is-profile {
+    figcaption {
+      position: absolute;
+      top: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      max-height: 40rem;
+      margin: 0;
+      padding-left: 2rem;
+      padding-top: 2rem;
+      flex-direction: column;
+      @include mobile-fablet() {
+        padding-left: 1rem;
+        padding-top: 1rem;
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@ import React from "react"
 
 // import Header from "./header"
 import Footer from "./footer"
-import Navbar from "../parts/navbar"
+import Header from "./header"
 
 import "../../assets/scss/project.scss"
 
@@ -12,12 +12,10 @@ config.autoAddCss = false
 
 export default ({ children }) => (
   <div>
-    <Navbar />
-    <div className="section is-main">
-      <div className="inner">
+    <Header />
+    <main className="main">
         {children}
-      </div>
-    </div>
+    </main>
     <Footer />
   </div>
 )

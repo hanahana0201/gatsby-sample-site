@@ -1,6 +1,5 @@
 import React from "react";
 import Img from "gatsby-image"
-import Layout from "../common/layout"
 
 export default () => (
   <section className="section is-hero">

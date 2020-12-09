@@ -1,0 +1,14 @@
+//----------------------------------------------------
+// Elements: Grid
+//----------------------------------------------------
+
+.table{
+  &.is-project-primary {
+    @include tablet(){
+      td {
+        padding: 2rem 5rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+}

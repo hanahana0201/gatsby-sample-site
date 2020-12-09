@@ -1,0 +1,18 @@
+//----------------------------------------------------
+// Elements: Button
+//----------------------------------------------------
+
+.button {
+  &.is-outline {
+    border-color: $black;
+    &.is-project-primary {
+      padding-right: 3rem;
+      padding-left: 3rem;
+      border-radius: 0;
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+}

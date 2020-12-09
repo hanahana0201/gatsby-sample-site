@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import SiteLogo from "../../assets/images/site-logo"
-import Navbar from "../parts/navbar"
+import Navbar from "./header"
 
 export default () => (
   <header className="section is-header" id="header">

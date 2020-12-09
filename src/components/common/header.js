@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import SiteLogo from "../../assets/images/site-logo"
 
-const Navbar = class extends React.Component {
+const Header = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,19 +33,19 @@ const Navbar = class extends React.Component {
 
   render() {
     return (
-      <nav
-        className="navbar is-transparent"
+      <header
+        className="section is-header is-fixed"
         role="navigation"
         aria-label="main-navigation"
       >
         <div className="container">
-          <div className="navbar-brand">
+          <div className="header-brand">
             <Link className="site-logo-link" to={`/`}>
               <SiteLogo />
             </Link>
             {/* Hamburger menu */}
             <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
+              className={`header-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
               onClick={() => this.toggleHamburger()}
             >
@@ -56,30 +56,30 @@ const Navbar = class extends React.Component {
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`header-menu ${this.state.navBarActiveClass}`}
           >
-            <div className="box is-center navbar-start">
-              <Link className="box is-display navbar-item" to="/">
+            <div className="box is-center header-start">
+              <Link className="box is-display header-item" to="/">
                 ホーム
               </Link>
-              <Link className="box is-display navbar-item" to="/about">
+              <Link className="box is-display header-item" to="/about">
                 わたしたち
               </Link>
-              <Link className="box is-display navbar-item" to="/work">
+              <Link className="box is-display header-item" to="/work">
                 しごと
               </Link>
-              <Link className="box is-display navbar-item" to="/blog">
+              <Link className="box is-display header-item" to="/blog">
                 日々のこと
               </Link>
-              <Link className="box is-display navbar-item" to="/contact">
+              <Link className="box is-display header-item" to="/contact">
                 お問い合わせ
               </Link>
             </div>
           </div>
         </div>
-      </nav>
+      </header>
     )
   }
 }
 
-export default Navbar
+export default Header

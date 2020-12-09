@@ -3,7 +3,105 @@
 //----------------------------------------------------
 
 .section {
-  &.is-main {
-    padding-top: 150px;
+  &.is-header {
+    width: 100%;
+    &.is-fixed {
+      position: fixed;
+      z-index: 10;
+    }
+  }
+  &.is-hero {
+    padding-top: 10rem;
+    &.is-no-image {
+      padding-top: 16rem;
+    }
+    figure {
+      position: relative;
+    }
+    figcaption {
+      position: absolute;
+      top: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      max-height: 40rem;
+      margin: 0;
+      justify-content: flex-end;
+      padding-left: 3.75rem;
+      padding-bottom: 2rem;
+      flex-direction: column;
+    }
+    .decorator {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    img {
+      max-height: 40rem;
+      object-fit: cover;
+    }
+  }
+  &.is-chart {
+    .inner {
+      padding: 9rem 6rem;
+    }
+
+    .chart-item {
+      font-size: 1em;
+      line-height: 1.75em;
+      margin: 0;
+      padding: 0 0 40px 80px;
+      counter-increment: section;
+      position: relative;
+      color: black;
+      border-left: 2px solid;
+
+      //numbers
+      &:before {
+        content: "step\A" counter(section);
+        position: absolute;
+        border: 2px solid $black;
+        border-radius: 50%;
+        padding: 10px;
+        height: 5rem;
+        width: 5rem;
+        background-color: $white;
+        text-align: center;
+        line-height: 1.5rem;
+        color: $black;
+        font-size: 1em;
+        font-weight: bold;
+        white-space: pre;
+        right: 100%;
+        margin-right: -2.5rem;
+        margin-top: -1.25rem;
+      }
+    }
+    //even number borders
+    p {
+
+
+      &:before {
+
+      }
+    }
+    //handle first and last
+    .chart-item:first-child {
+      border-top: 0;
+      border-top-right-radius:0;
+      border-top-left-radius:0;
+    }
+    .chart-item:last-child {
+      border-bottom-right-radius:0;
+      border-bottom-left-radius:0;
+      border-color: $white;
+    }
+  }
+  &.is-outline {
+    padding-top: 10rem;
+  }
+  &.is-profile {
+    margin-top : 10rem ;
+    &:nth-child(even) .grid {
+      flex-direction: row-reverse;
+    }
   }
 }

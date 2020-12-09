@@ -1,0 +1,12 @@
+//----------------------------------------------------
+// Elements: Grid
+//----------------------------------------------------
+
+.grid {
+  &.is-column {
+    flex-direction: column;
+  }
+  &.is-align-center {
+    align-content: center;
+  }
+}

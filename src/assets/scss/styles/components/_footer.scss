@@ -1,0 +1,15 @@
+.footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem ;
+  margin-top: 11.25rem;
+  &.is-top {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    &.is-light {
+      color: $white;
+      text-shadow: 1px 1px 1px rgba(1,1,1,.5);
+    }
+  }
+}

@@ -52,7 +52,7 @@
     }
   }
   &.is-chart {
-    margin-top: 12rem;
+    margin-top: 10rem;
     @include mobile-fablet() {
       margin-top: 6rem;
     }
@@ -121,12 +121,15 @@
     }
   }
   &.is-outline {
-    padding-top: 10rem;
+    margin-top : 10rem ;
   }
   &.is-profile {
     margin-top : 10rem ;
     &:nth-child(even) .grid {
       flex-direction: row-reverse;
     }
+  }
+  &.is-fee {
+    margin-top : 8rem ;
   }
 }

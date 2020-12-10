@@ -11,13 +11,16 @@
 
 .project-heading-1 {
   font-size: 2rem;
+  @include mobile-fablet() {
+    font-size: 1.5rem;
+  }
 }
 
 .project-heading-2 {
   font-size: 6rem;
   line-height: 7.5rem;
   @include mobile-fablet() {
-    font-size: 4rem;
-    line-height: 4.5rem;
+    font-size: 3.5rem;
+    line-height: 4rem;
   }
 }

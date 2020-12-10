@@ -12,8 +12,18 @@
   }
   &.is-hero {
     padding-top: 10rem;
+    @include mobile-fablet() {
+      padding-top: 5rem;
+    }
     &.is-no-image {
       padding-top: 16rem;
+    }
+    .gatsby-image-wrapper > div {
+      padding-bottom: 0 !important;
+      height: 40rem;
+      @include mobile-fablet() {
+        height: 30rem;;
+      }
     }
     figure {
       position: relative;
@@ -24,12 +34,14 @@
       display: flex;
       width: 100%;
       height: 100%;
-      max-height: 40rem;
       margin: 0;
       justify-content: flex-end;
       padding-left: 3.75rem;
       padding-bottom: 2rem;
       flex-direction: column;
+      @include mobile-fablet() {
+        padding-left: 0.75rem;
+      }
     }
     .decorator {
       background-color: rgba(0, 0, 0, 0.05);
@@ -40,20 +52,28 @@
     }
   }
   &.is-chart {
-    .inner {
-      padding: 9rem 6rem;
+    margin-top: 12rem;
+    @include mobile-fablet() {
+      margin-top: 6rem;
     }
-
+    .inner {
+      padding: 0 6rem;
+      @include mobile-fablet() {
+        padding: 0 1.5rem 0 3.5rem;
+      }
+    }
     .chart-item {
       font-size: 1em;
       line-height: 1.75em;
       margin: 0;
-      padding: 0 0 40px 80px;
+      padding: 0 0 7rem 5rem;
       counter-increment: section;
       position: relative;
       color: black;
       border-left: 2px solid;
-
+      @include mobile-fablet() {
+        padding: 0 0 5rem 3rem;
+      }
       //numbers
       &:before {
         content: "step\A" counter(section);
@@ -73,14 +93,19 @@
         right: 100%;
         margin-right: -2.5rem;
         margin-top: -1.25rem;
+        @include mobile-fablet() {
+          height: 4rem;
+          width: 4rem;
+          line-height: 1.25rem;
+          margin-right: -2rem;
+        }
       }
-    }
-    //even number borders
-    p {
-
-
-      &:before {
-
+      &.is-paid {
+        &:before {
+          border-color: #8E8E8E;
+          background-color: #8E8E8E;
+          color: $white;
+        }
       }
     }
     //handle first and last

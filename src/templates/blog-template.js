@@ -3,70 +3,129 @@ import { graphql,Link } from "gatsby"
 import Imgix from "react-imgix"
 import Layout from "../components/common/layout"
 
-import SEO from "../components/common/seo"
+import unified from "unified"
+import parse from "rehype-parse"
+import rehypeReact from"rehype-react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft, faChevronRight, } from "@fortawesome/free-solid-svg-icons"
 
-export default ({ data,location,pageContext }) => (
-  <Layout>
-    <SEO
-      pagetitle="ブログ"
-      pagedesc="ESSENTIALSのブログです"
-      pagepath={location.pathname}
-    />
-    <section className="content bloglist">
-      <div className="container">
-        <h1 className="bar">RECENT POSTS</h1>
-        <div className="posts">
-          {data.allMicrocmsBlog.edges.map(({ node }) => (
-            <article className="post" key={node.id}>
-              <Link to={`/blog/post/${node.slug}/`}>
-                <figure>
-                  <Imgix
-                    src={node.eyecatch.url}
-                    sizes="(max-width: 500px) 100vw, 500px"
-                    htmlAttributes={{
-                      alt: "",
-                    }}
-                  />
-                </figure>
-                <h3>{node.title}</h3>
-              </Link>
-            </article>
-          ))}
+import SEO from "../components/common/seo"
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  Fragment: React.Fragment,
+  components: {},
+}).Compiler
+
+
+export default ({ data,location,pageContext }) => {
+  const htmlAst = unified()
+      .use(parse, { fragment: true })
+      .parse(data.allMicrocmsBlog.edges.node.content)
+
+  return (
+    <Layout>
+      <SEO
+        pagetitle="ブログ"
+        pagedesc="ESSENTIALSのブログです"
+        pagepath={location.pathname}
+      />
+      <section className="section is-hero is-no-image">
+        <div className="inner is-padding-horizontal-lg is-space-xxxl">
+          <h2 className="text is-strong is-center is-lg is-fablet-xl is-tablet-xxl">
+            日々のこと
+          </h2>
         </div>
+      </section>
+      <section className="section is-blog">
+        <div className="inner is-padding-horizontal-lg">
+          <div className="grid">
+            <div className="column is-mobile-12 is-desktop-3">
+              <div className="sidebar text is-center">
+                <h3>カテゴリ</h3>
+                <ul>
 
-        <ul className="pagenation">
-          {!pageContext.isFirst && (
-            <li className="prev">
-              <Link
-                to={
-                  pageContext.currentPage === 2
-                    ? `/blog/`
-                    : `/blog/${pageContext.currentPage - 1}`
-                }
-                rel="prev"
-              >
-                <FontAwesomeIcon icon={faChevronLeft} />
-                <span>前のページ</span>
-              </Link>
-            </li>
-          )}
+                </ul>
+                <h3>アーカイブ</h3>
+                <ul>
 
-          {!pageContext.isLast && (
-            <li className="next">
-              <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
-                <span>次のページ</span>
-                <FontAwesomeIcon icon={faChevronRight} />
-              </Link>
-            </li>
-          )}
-        </ul>
-      </div>
-    </section>
-  </Layout>
-)
+                </ul>
+              </div>
+            </div>
+            <div className="column is-mobile-12 is-desktop-9">
+              <div className="blog-list-wrap">
+                <div className="posts">
+                  {data.allMicrocmsBlog.edges.map(({ node }) => (
+                    <article className="post" key={node.id}>
+                      <div className="box is-eyecatch">
+                        <figure>
+                          <Imgix
+                            src={node.eyecatch.url}
+                            htmlAttributes={{
+                              alt: "",
+                            }}
+                          />
+                        </figure>
+                      </div>
+                      <div className="box is-content">
+                        <h3>{node.title}</h3>
+                        <aside className="info">
+                          <time dateTime={node.publishDate}>
+                            {node.publishDateJP}
+                          </time>
+                          <div className="cat">
+                            <ul>
+                              {node.category.map(cat => (
+                                <li className={cat.categorySlug} key={cat.id}>
+                                  <Link to={`/cat/${cat.categorySlug}/`}>
+                                    {cat.category}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </aside>
+                        <div className="postbody">{renderAst(htmlAst)}</div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <ul className="pagenation">
+                  {!pageContext.isFirst && (
+                    <li className="prev">
+                      <Link
+                        to={
+                          pageContext.currentPage === 2
+                            ? `/blog/`
+                            : `/blog/${pageContext.currentPage - 1}`
+                        }
+                        rel="prev"
+                      >
+                        <FontAwesomeIcon icon={faChevronLeft} />
+                        <span>前のページ</span>
+                      </Link>
+                    </li>
+                  )}
+
+                  {!pageContext.isLast && (
+                    <li className="next">
+                      <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
+                        <span>次のページ</span>
+                        <FontAwesomeIcon icon={faChevronRight} />
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
+    )
+}
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
@@ -83,6 +142,13 @@ export const query = graphql`
           eyecatch {
             url
           }
+          publishDateJP:publishDate(formatString: "YYYY年MM月DD日")
+          publishDate
+          category {
+            category
+            categorySlug
+          } 
+          content
         }
       }
     } 

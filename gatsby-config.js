@@ -6,12 +6,12 @@
 
 module.exports = {
   /* Your site config here */
-  pathPrefix: `/mysite`,
+  pathPrefix: `/craft-sekkei`,
   siteMetadata: {
     title: `ESSENTIALS`,
     description: `おいしい食材と食事を探求するサイト`,
     lang: `ja`,
-    siteUrl: `https://**********.netlify.app`,
+    siteUrl: `http://hanahana0201.xsrv.jp`,
     locale: `ja_JP`,
     fbappid: `XXXXXXXXXXXXXXXXXXXXXXXXXXX`,
   },

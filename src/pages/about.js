@@ -42,10 +42,10 @@ export default ({data, location }) => (
         <div className="box text is-center is-space-xxl">
           <div className="grid is-space">
             <div className="column is-full">
-              <a href="/flow" className="button is-outline is-project-primary text is-strong">家づくりの流れ</a>
+              <a href="../flow" className="button is-outline is-project-primary text is-strong">家づくりの流れ</a>
             </div>
             <div className="column is-full">
-              <a href="/fee" className="button is-outline is-project-primary text is-strong">設計料について</a>
+              <a href="../fee" className="button is-outline is-project-primary text is-strong">設計料について</a>
             </div>
           </div>
         </div>

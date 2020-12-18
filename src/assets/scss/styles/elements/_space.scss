@@ -6,10 +6,15 @@
 // / Variables
 //----------------------------------------------------
 $space-size-xxxl: 7.5rem !default;
+$space-size-xxxxl: 15rem !default;
 //----------------------------------------------------
 // / Style - Space
 //----------------------------------------------------
 
 .is-space-xxxl > *:not(:first-child) {
   margin-top: $space-size-xxxl;
+}
+
+.is-space-xxxxl > *:not(:first-child) {
+  margin-top: $space-size-xxxxl;
 }

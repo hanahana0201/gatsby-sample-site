@@ -33,7 +33,7 @@ export default ({ data,location,pageContext }) => (
         </div>
       </section>
       <section className="section is-blog">
-        <div className="inner is-padding-horizontal-lg">
+        <div className="inner">
           <div className="grid">
             <div className="column is-mobile-12 is-desktop-3">
               <div className="sidebar text is-center">
@@ -48,48 +48,51 @@ export default ({ data,location,pageContext }) => (
               </div>
             </div>
             <div className="column is-mobile-12 is-desktop-9">
-              <div className="blog-list-wrap">
-                <div className="posts">
+              <div className="blog-list-wrap is-space-xxxl">
+                <div className="posts is-space-xxxl">
                   {data.allMicrocmsBlog.edges.map(({ node }) => (
-                    <article className="post" key={node.id}>
-                      <div className="box is-eyecatch">
-                        <figure>
-                          <Imgix
-                            src={node.eyecatch.url}
-                            htmlAttributes={{
-                              alt: "",
-                            }}
-                          />
-                        </figure>
-                      </div>
-                      <div className="box is-content">
-                        <h3>{node.title}</h3>
-                        <aside className="info">
-                          <time dateTime={node.publishDate}>
-                            {node.publishDateJP}
-                          </time>
-                          <div className="cat">
-                            <ul>
-                              {node.category.map(cat => (
-                                <li className={cat.categorySlug} key={cat.id}>
-                                  <Link to={`/cat/${cat.categorySlug}/`}>
-                                    {cat.category}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </aside>
-                        <div
-                          className="postbody"
-                          dangerouslySetInnerHTML={{
-                            __html: `${node.content}`,
-                          }}
-                        >
+                    <>
+                      <article className="post is-space" key={node.id}>
+                        <div className="box is-eyecatch">
+                          <figure>
+                            <Imgix
+                              src={node.eyecatch.url}
+                              htmlAttributes={{
+                                alt: "",
+                              }}
+                            />
+                          </figure>
                         </div>
-                      </div>
-                    </article>
-                  ))}
+                        <div className="box is-content is-space-lg">
+                          <h3 className="text is-strong is-xxl">{node.title}</h3>
+                          <aside className="box is-detail is-flex text is-sm is-space-right">
+                            <time dateTime={node.publishDate}>
+                              {node.publishDateJP}
+                            </time>
+                            <div className="box is-category">
+                              <ul className="box is-flex is-space-right">
+                                {node.category.map(cat => (
+                                  <li className={cat.categorySlug} key={cat.id}>
+                                    <Link to={`/cat/${cat.categorySlug}/`}>
+                                      {cat.category}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </aside>
+                          <div
+                            className="postbody"
+                            dangerouslySetInnerHTML={{
+                              __html: `${node.content}`,
+                            }}
+                          >
+                          </div>
+                        </div>
+                      </article>
+                      <hr className="article-line"></hr>
+                    </>
+                    ))}
                 </div>
 
                 <ul className="pagenation">

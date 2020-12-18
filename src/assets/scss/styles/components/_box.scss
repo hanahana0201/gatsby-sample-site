@@ -33,6 +33,13 @@
       }
     }
   }
+  &.is-category {
+    a {
+      padding: .25rem .5rem;
+      background: black;
+      color: white;
+    }
+  }
   &.is-contact {
     margin-top: 7rem;
   }

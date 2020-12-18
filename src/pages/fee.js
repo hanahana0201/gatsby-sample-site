@@ -37,7 +37,7 @@ export default ({data, location }) => (
     <section className="section is-fee">
       <div className="inner is-padding-horizontal-lg">
         <div className="box">
-          <p className="text">
+          <p className="text is-center">
             木造2階建て以下の場合<br></br>
             <br></br>
             設計監理料は、延床面積1坪×8万円(税別)です。<br></br>

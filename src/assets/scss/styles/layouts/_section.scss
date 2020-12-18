@@ -132,4 +132,16 @@
   &.is-fee {
     margin-top : 8rem ;
   }
+  &.is-works {
+    margin-top : 10rem ;
+    .inner {
+      padding: 0  12rem;
+      @include mobile-fablet() {
+        padding: 0 1rem;
+      }
+    }
+  }
+  &.is-work {
+    margin-top : 10rem ;
+  }
 }

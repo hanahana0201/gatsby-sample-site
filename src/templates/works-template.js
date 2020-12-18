@@ -8,43 +8,60 @@ import SEO from "../components/common/seo"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft, faChevronRight, } from "@fortawesome/free-solid-svg-icons"
 
-export default ({ data,location,pageContext }) => (
-  <Layout>
+export default ({ data,location,pageContext,props }) => (
+  <Layout
+   class="is-light"
+  >
     <SEO
       pagetitle="ブログ"
       pagedesc="ESSENTIALSのブログです"
       pagepath={location.pathname}
     />
-    <section className="content bloglist">
-      <div className="container">
-        <h1 className="bar">Works</h1>
-        <div className="posts">
+    <section className="section is-hero is-no-image">
+      <div className="inner is-padding-horizontal-lg is-space-xxxl">
+        <h1 className="text is-strong is-center is-lg is-fablet-xl is-tablet-xxl">
+          しごと
+        </h1>
+      </div>
+    </section>
+    <section className="section is-works">
+      <div className="inner is-space-xxxl">
           {data.allMicrocmsWork.edges.map(({ node }) => (
-            <article className="post" key={node.id}>
+            <div className="box is-works-item" key={node.id}>
               <Link to={`/work/post/${node.slug}/`}>
                 <figure>
                   <Imgix
                     src={node.eyecatch.url}
-                    sizes="(max-width: 500px) 100vw, 500px"
+                    sizes="(max-width: 1600px) 100vw, 1600px"
                     htmlAttributes={{
                       alt: "",
                     }}
                   />
+                  <figcaption className="text is-center is-space">
+                    <h2>
+                      <figure>
+                        <Imgix
+                          src={node.title_image.url}
+                          htmlAttributes={{
+                            alt: node.title
+                          }}
+                        />
+                      </figure>
+                    </h2>
+                    <h3 className="text is-strong is-lg is-light is-shadow">{node.construction_year}</h3>
+                  </figcaption>
                 </figure>
-                <h3>{node.title}</h3>
               </Link>
-            </article>
+            </div>
           ))}
-        </div>
-
         <ul className="pagenation">
           {!pageContext.isFirst && (
             <li className="prev">
               <Link
                 to={
                   pageContext.currentPage === 2
-                    ? `/blog/`
-                    : `/blog/${pageContext.currentPage - 1}`
+                    ? `/work/`
+                    : `/work/${pageContext.currentPage - 1}`
                 }
                 rel="prev"
               >
@@ -56,7 +73,7 @@ export default ({ data,location,pageContext }) => (
 
           {!pageContext.isLast && (
             <li className="next">
-              <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
+              <Link to={`/work/${pageContext.currentPage + 1}/`} rel="next">
                 <span>次のページ</span>
                 <FontAwesomeIcon icon={faChevronRight} />
               </Link>
@@ -77,6 +94,10 @@ export const query = graphql`
       edges {
         node {
           title
+          title_image {
+            url
+          }
+          construction_year
           slug
           description
           eyecatch {

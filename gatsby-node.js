@@ -142,7 +142,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  const workPostPerPage = 6 //1ページに表示する記事の数
+  const workPostPerPage = 5 //1ページに表示する記事の数
   const workPosts = workresult.data.allMicrocmsWork.edges.length //記事の総数
   const workPages = Math.ceil(workPosts / workPostPerPage) //記事一覧ページの総数
 

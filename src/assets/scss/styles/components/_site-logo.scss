@@ -34,15 +34,15 @@ $site-top-fablet-height: $site-top-fablet-logo-width * 0.1718;
   &.is-top {
     width: $site-top-logo-width;
     height: $site-top-logo-height;
-    &.is-light {
-      path {
-        fill: $white;
-      }
-      filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
-    }
     @include mobile-fablet() {
       width: $site-top-fablet-logo-width;
       height: $site-top-fablet-height;
     }
+  }
+  &.is-light {
+    path {
+      fill: $white;
+    }
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
   }
 }

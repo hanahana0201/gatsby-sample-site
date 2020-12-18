@@ -49,6 +49,13 @@ $brand-color-rss: #f26522;
 
 body {
   -webkit-print-color-adjust: exact;
+  color: $black;
 }
 
-
+@include tablet() {
+  a[href*="tel:"] {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+  }
+}

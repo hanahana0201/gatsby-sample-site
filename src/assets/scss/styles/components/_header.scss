@@ -11,7 +11,7 @@
     }
   }
   &-burger {
-    color: #4a4a4a;
+    color: $black;
     cursor: pointer;
     display: block;
     position: relative;
@@ -50,6 +50,12 @@
         &:nth-child(3) {
           transform: translateY(-7px) rotate(-45deg);
         }
+      }
+    }
+    &.is-light {
+      color: $white;
+      span {
+        box-shadow: 1px 1px 1px rgba(1,1,1,.5);
       }
     }
   }

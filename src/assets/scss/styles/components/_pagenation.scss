@@ -1,0 +1,18 @@
+//----------------------------------------------------
+// Components: Pagenation
+//----------------------------------------------------
+
+.pagenation {
+  .next {
+    float: right;
+    span {
+      margin-right: 1rem;
+    }
+  }
+  .prev {
+    float: left;
+    span {
+      margin-left: 1rem;
+    }
+  }
+}

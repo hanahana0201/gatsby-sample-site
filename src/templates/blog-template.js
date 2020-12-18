@@ -5,7 +5,7 @@ import Layout from "../components/common/layout"
 
 import unified from "unified"
 import parse from "rehype-parse"
-import rehypeReact from"rehype-react"
+import rehypeReact from "rehype-react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft, faChevronRight, } from "@fortawesome/free-solid-svg-icons"
@@ -18,13 +18,7 @@ const renderAst = new rehypeReact({
   components: {},
 }).Compiler
 
-
-export default ({ data,location,pageContext }) => {
-  const htmlAst = unified()
-      .use(parse, { fragment: true })
-      .parse(data.allMicrocmsBlog.edges.node.content)
-
-  return (
+export default ({ data,location,pageContext }) => (
     <Layout>
       <SEO
         pagetitle="ブログ"
@@ -86,7 +80,13 @@ export default ({ data,location,pageContext }) => {
                             </ul>
                           </div>
                         </aside>
-                        <div className="postbody">{renderAst(htmlAst)}</div>
+                        <div
+                          className="postbody"
+                          dangerouslySetInnerHTML={{
+                            __html: `${node.content}`,
+                          }}
+                        >
+                        </div>
                       </div>
                     </article>
                   ))}
@@ -124,8 +124,7 @@ export default ({ data,location,pageContext }) => {
         </div>
       </section>
     </Layout>
-    )
-}
+)
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {

@@ -6,10 +6,9 @@ import Imgix from "react-imgix"
 
 import unified from "unified"
 import parse from "rehype-parse"
-import rehypeReact from"rehype-react"
+import rehypeReact from "rehype-react"
 
 import SEO from "../components/common/seo"
-// import htmlToText from "html-to-text"
 
 
 const renderAst = new rehypeReact({

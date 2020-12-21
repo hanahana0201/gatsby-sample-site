@@ -7,11 +7,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // ブログのページの自動生成
   const blogresult = await graphql(`
     query {
-      allMicrocmsBlog(sort: {fields: publishDate, order: DESC}) {
+      allMicrocmsBlog(filter: {publishDate: {
+    gte: "2019-01-01T00:00:00.000Z",
+    lt: "2019-12-31T00:00:00.000Z"
+        }
+      },
+      sort: {fields: publishDate, order: DESC
+      }) {
         edges {
           node {
             id
             slug
+            year :publishDate(formatString: "YYYY")
           }
           next {
             title
@@ -54,7 +61,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  const blogPostPerPage = 6 //1ページに表示する記事の数
+  const blogPostPerPage = 5 //1ページに表示する記事の数
   const blogPosts = blogresult.data.allMicrocmsBlog.edges.length //記事の総数
   const blogPages = Math.ceil(blogPosts / blogPostPerPage) //記事一覧ページの総数
 
@@ -73,7 +80,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 
   blogresult.data.allMicrocmsBlog.group.forEach(node => {
-    const catPostsPerPage = 6 //1ページに表示する記事の数
+    const catPostsPerPage = 5 //1ページに表示する記事の数
     const catPosts = node.totalCount //カテゴリーに属した記事の総数
     const catPages = Math.ceil(catPosts / catPostsPerPage) //カテゴリーページの総数
 
@@ -81,9 +88,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       createPage({
         path:
           i === 0
-            ? `/cat/${node.fieldValue}/`
-            : `/cat/${node.fieldValue}/${i + 1}/`,
-        component: path.resolve(`./src/templates/cat-template.js`),
+            ? `/category/${node.fieldValue}/`
+            : `/category/${node.fieldValue}/${i + 1}/`,
+        component: path.resolve(`./src/templates/category-template.js`),
         context: {
           catid: blogresult.data.allMicrocmsCategory.nodes.find(
             n => n.categorySlug === node.fieldValue
@@ -98,6 +105,39 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           isFirst: i + 1 === 1, // 最初のページ
           isLast: i + 1 === catPages, // 最後のページ
         },
+      })
+    })
+  })
+
+  const years = new Set();
+
+  blogresult.data.allMicrocmsBlog.edges.forEach(({ node }) => {
+
+    years.add(node.year)
+
+    const archivePostsPerPage = 5 //1ページに表示する記事の数
+    const archivePosts = years.size //アーカイブに属した記事の総数
+    const archivePages = Math.ceil(archivePosts / archivePostsPerPage) //アーカイブの総数
+    //
+    Array.from({ length: archivePages }).forEach((_, i) => {
+      years.forEach(year => {
+        createPage({
+          path:
+          i === 0
+            ? `/archive/${year}/`
+            : `/archive/${year}/${i + 1}/`,
+          component: path.resolve(`./src/templates/archive-template.js`),
+          context: {
+            displayYear: year,
+            periodStartDate: `${year}-01-01T00:00:00.000Z`,
+            periodEndDate: `${year}-12-31T23:59:59.999Z`,
+            skip: archivePostsPerPage * i,
+            limit: archivePostsPerPage,
+            currentPage: i + 1,
+            isFirst: i + 1 === 1,
+            isLast: i + 1 === archivePages,
+          },
+        })
       })
     })
   })

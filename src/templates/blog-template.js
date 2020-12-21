@@ -3,20 +3,10 @@ import { graphql,Link } from "gatsby"
 import Imgix from "react-imgix"
 import Layout from "../components/common/layout"
 
-import unified from "unified"
-import parse from "rehype-parse"
-import rehypeReact from "rehype-react"
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft, faChevronRight, } from "@fortawesome/free-solid-svg-icons"
 
 import SEO from "../components/common/seo"
-
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  Fragment: React.Fragment,
-  components: {},
-}).Compiler
 
 export default ({ data,location,pageContext }) => (
     <Layout>
@@ -73,7 +63,7 @@ export default ({ data,location,pageContext }) => (
                               <ul className="box is-flex is-space-right">
                                 {node.category.map(cat => (
                                   <li className={cat.categorySlug} key={cat.id}>
-                                    <Link to={`/cat/${cat.categorySlug}/`}>
+                                    <Link to={`/category/${cat.categorySlug}/`}>
                                       {cat.category}
                                     </Link>
                                   </li>

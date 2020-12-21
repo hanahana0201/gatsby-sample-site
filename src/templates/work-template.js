@@ -43,7 +43,7 @@ export default ({data}) => {
       </section>
       <section className="section is-work">
         <div className="inner">
-          <div className="box is-space-xxxl text is-center">
+          <div className="box is-work is-space-xxxl text is-center">
             <p>
               {renderAst(htmlAst)}
             </p>

@@ -4,9 +4,6 @@ import Img from "gatsby-image"
 
 import Layout from "../components/common/layout"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUtensils, faCheckSquare} from "@fortawesome/free-solid-svg-icons"
-
 import SEO from "../components/common/seo"
 
 export default ({data, location }) => (

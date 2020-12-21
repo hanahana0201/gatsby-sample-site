@@ -7,11 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // ブログのページの自動生成
   const blogresult = await graphql(`
     query {
-      allMicrocmsBlog(filter: {publishDate: {
-    gte: "2019-01-01T00:00:00.000Z",
-    lt: "2019-12-31T00:00:00.000Z"
-        }
-      },
+      allMicrocmsBlog(
       sort: {fields: publishDate, order: DESC
       }) {
         edges {

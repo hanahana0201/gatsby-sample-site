@@ -26,15 +26,28 @@ export default ({ data,location,pageContext }) => (
         <div className="inner">
           <div className="grid">
             <div className="column is-mobile-12 is-desktop-3">
-              <div className="sidebar text is-center">
-                <h3>カテゴリ</h3>
-                <ul>
+              <div className="sidebar text is-center is-space-xxl">
+                <div className="box">
+                  <h3 className="text is-strong">カテゴリ</h3>
+                  <ul>
+                    {data.allMicrocmsCategory.edges.map(({ node }) => (
+                      <li>
+                        <Link
+                          className="text is-sm"
+                          to={`../category/${node.categorySlug}`}
+                        >
+                          {node.category}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="box">
+                  <h3 className="text is-strong">アーカイブ</h3>
+                  <ul>
 
-                </ul>
-                <h3>アーカイブ</h3>
-                <ul>
-
-                </ul>
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="column is-mobile-12 is-desktop-9">
@@ -144,5 +157,13 @@ export const query = graphql`
         }
       }
     } 
+    allMicrocmsCategory {
+      edges {
+        node {
+          category
+          categorySlug
+        }
+      }
+    }
   }
 `

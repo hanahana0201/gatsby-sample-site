@@ -111,7 +111,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     years.add(node.year)
 
-    const archivePostsPerPage = 5 //1ページに表示する記事の数
+    const archivePostsPerPage = 100 //1ページに表示する記事の数
     const archivePosts = years.size //アーカイブに属した記事の総数
     const archivePages = Math.ceil(archivePosts / archivePostsPerPage) //アーカイブの総数
     //

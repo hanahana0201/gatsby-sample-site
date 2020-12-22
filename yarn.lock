@@ -11440,11 +11440,6 @@ react-hot-loader@^4.12.21:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-image-resizer@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-image-resizer/-/react-image-resizer-1.3.0.tgz#99e25bb94ab2fe888c26538c5d764abd2b4e2a93"
-  integrity sha512-JZwNWumImYwPNeaf+MV5wEtUvyPK8crjLYo7AVf3/3LQ92oPwi/Clxmg76f14EQm73cbwxKgXTlJbFOSRGQGtA==
-
 react-imgix@^9.0.2:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/react-imgix/-/react-imgix-9.0.2.tgz#85cf6eddc68c144e5b07111a9219df7bbd9b96c6"

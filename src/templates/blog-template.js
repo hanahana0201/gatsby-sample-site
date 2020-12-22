@@ -8,7 +8,17 @@ import { faChevronLeft, faChevronRight, } from "@fortawesome/free-solid-svg-icon
 
 import SEO from "../components/common/seo"
 
-export default ({ data,location,pageContext }) => (
+export default ({ data,location,pageContext }) => {
+  const years = new Set();
+  years.add(data.allMicrocmsBlog.edges.map(({ node }) => (
+    <li>
+      { node.year }
+    </li>
+  )
+  ));
+
+
+  return (
     <Layout>
       <SEO
         pagetitle="ブログ"
@@ -45,7 +55,18 @@ export default ({ data,location,pageContext }) => (
                 <div className="box">
                   <h3 className="text is-strong">アーカイブ</h3>
                   <ul>
-
+                    { years }
+                    {/*{*/}
+                    {/*  years.map(({ node }) => (*/}
+                    {/*  <li>*/}
+                    {/*    <Link*/}
+                    {/*      className="text is-sm"*/}
+                    {/*      to={`../category/${node.year}`}*/}
+                    {/*    >*/}
+                    {/*    {node.year}*/}
+                    {/*  </Link>*/}
+                    {/*  </li>*/}
+                    {/*  ))}*/}
                   </ul>
                 </div>
               </div>
@@ -95,7 +116,7 @@ export default ({ data,location,pageContext }) => (
                       </article>
                       <hr className="article-line"></hr>
                     </>
-                    ))}
+                  ))}
                 </div>
 
                 <ul className="pagenation">
@@ -109,7 +130,7 @@ export default ({ data,location,pageContext }) => (
                         }
                         rel="prev"
                       >
-                        <FontAwesomeIcon icon={faChevronLeft} />
+                        <FontAwesomeIcon icon={faChevronLeft}/>
                         <span>前のページ</span>
                       </Link>
                     </li>
@@ -119,7 +140,7 @@ export default ({ data,location,pageContext }) => (
                     <li className="next">
                       <Link to={`/blog/${pageContext.currentPage + 1}/`} rel="next">
                         <span>次のページ</span>
-                        <FontAwesomeIcon icon={faChevronRight} />
+                        <FontAwesomeIcon icon={faChevronRight}/>
                       </Link>
                     </li>
                   )}
@@ -130,7 +151,8 @@ export default ({ data,location,pageContext }) => (
         </div>
       </section>
     </Layout>
-)
+  )
+}
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
@@ -147,8 +169,9 @@ export const query = graphql`
           eyecatch {
             url
           }
-          publishDateJP:publishDate(formatString: "YYYY年MM月DD日")
           publishDate
+          publishDateJP:publishDate(formatString: "YYYY年MM月DD日")
+          year :publishDate(formatString: "YYYY")
           category {
             category
             categorySlug

@@ -6,6 +6,13 @@
   &.is-column {
     flex-direction: column;
   }
+  &.is-column-reverse {
+    &-mobile-fablet {
+      @include mobile-fablet() {
+        flex-flow: column-reverse;
+      }
+    }
+  }
   &.is-align-center {
     align-content: center;
   }

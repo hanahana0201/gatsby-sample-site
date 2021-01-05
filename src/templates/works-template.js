@@ -29,28 +29,30 @@ export default ({ data,location,pageContext,props }) => (
           {data.allMicrocmsWork.edges.map(({ node }) => (
             <div className="box is-works-item" key={node.id}>
               <Link to={`/work/post/${node.slug}/`}>
-                <figure>
-                  <Imgix
-                    src={node.eyecatch.url}
-                    sizes="(max-width: 1600px) 100vw, 1600px"
-                    htmlAttributes={{
-                      alt: "",
-                    }}
-                  />
-                  <figcaption className="text is-center is-space">
-                    <h2>
-                      <figure>
-                        <Imgix
-                          src={node.title_image.url}
-                          htmlAttributes={{
-                            alt: node.title
-                          }}
-                        />
-                      </figure>
-                    </h2>
-                    <h3 className="text is-strong is-lg is-light is-shadow">{node.construction_year}</h3>
-                  </figcaption>
-                </figure>
+                <div className="box is-eyecatch">
+                  <figure>
+                    <Imgix
+                      src={node.eyecatch.url}
+                      sizes="(max-width: 1600px) 100vw, 1600px"
+                      htmlAttributes={{
+                        alt: "",
+                      }}
+                    />
+                    <figcaption className="text is-center is-space">
+                      <h2>
+                        <figure>
+                          <Imgix
+                            src={node.title_image.url}
+                            htmlAttributes={{
+                              alt: node.title
+                            }}
+                          />
+                        </figure>
+                      </h2>
+                      <h3 className="text is-strong is-lg is-light is-shadow">{node.construction_year}</h3>
+                    </figcaption>
+                  </figure>
+                </div>
               </Link>
             </div>
           ))}

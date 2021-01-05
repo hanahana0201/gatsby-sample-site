@@ -17,6 +17,9 @@
     }
     &.is-no-image {
       padding-top: 16rem;
+      @include mobile-fablet() {
+        padding-top: 12rem ;
+      }
     }
     .gatsby-image-wrapper > div {
       padding-bottom: 0 !important;
@@ -49,6 +52,13 @@
     img {
       max-height: 40rem;
       object-fit: cover;
+    }
+    &-full {
+      img {
+        height: 100vh;
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
   &.is-chart {
@@ -122,11 +132,17 @@
   }
   &.is-outline {
     margin-top : 10rem ;
+    @include mobile-fablet() {
+      margin-top : 6rem;
+    }
   }
   &.is-profile {
     margin-top : 10rem ;
     &:nth-child(even) .grid {
       flex-direction: row-reverse;
+    }
+    @include mobile-fablet() {
+      margin-top : 6rem;
     }
   }
   &.is-fee {
@@ -143,8 +159,19 @@
   }
   &.is-work {
     margin-top : 10rem ;
+    @include mobile-fablet() {
+      margin-top : 4rem;
+    }
   }
   &.is-blog {
     margin-top : 10rem ;
+    .postbody {
+      img {
+        display: block;
+        margin: 0 auto;
+        height: 90vh;
+      }
+    }
   }
+
 }

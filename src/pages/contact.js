@@ -38,8 +38,11 @@ export default ({data, location }) => (
     <section className="section is-contact">
       <div className="inner is-padding-horizontal-lg">
         <div className="box is-contact text is-center is-space-xxl">
-            <p className="text is-strong is-xxl">
-              <a className="text is-link is-project-primary" href="tel:09091251863">tel 090-9125-1863</a>
+            <p className="text is-strong is-fablet-xxl is-xl">
+              <a className="text is-link is-project-primary" href="tel:09091251863">
+                <span className="text is-inline-block is-margin-right-sm">tel</span>
+                <span className="text is-inline-block">090-9125-1863</span>
+              </a>
             </p>
             <p className="text">
               ご質問・ご相談の方は、お気軽にお電話ください。
@@ -53,8 +56,11 @@ export default ({data, location }) => (
             メールの確認作業に時間を要する場合がございますので、<br></br>
             お急ぎのお客様はお電話にてお問い合わせ頂くことをおすすめいたします。<br></br>
           </p>
-          <p className="text is-strong is-lg">
-            <a className="text is-link is-project-primary" href="mailto:t-nakamura@craftsekkei.com">e-mail t-nakamura@craftsekkei.com</a>
+          <p className="text is-strong is-fablet-lg">
+            <a className="text is-link is-project-primary" href="mailto:t-nakamura@craftsekkei.com">
+              <span className="text is-inline-block is-margin-right-sm">e-mail</span>
+              <span className="text is-inline-block">t-nakamura@craftsekkei.com</span>
+            </a>
           </p>
         </div>
       </div>

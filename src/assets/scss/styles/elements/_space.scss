@@ -13,6 +13,9 @@ $space-size-xxxxl: 15rem !default;
 
 .is-space-xxxl > *:not(:first-child) {
   margin-top: $space-size-xxxl;
+  @include mobile-fablet() {
+    margin-top: 6rem;
+  }
 }
 
 .is-space-xxxxl > *:not(:first-child) {

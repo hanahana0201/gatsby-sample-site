@@ -18,26 +18,54 @@ export default ({ data,location,pageContext }) => (
     <section className="section is-hero is-no-image">
       <div className="inner is-padding-horizontal-lg is-space-xxxl">
         <h2 className="text is-strong is-center is-lg is-fablet-xl is-tablet-xxl">
-          カテゴリー : {pageContext.catname}
+          {pageContext.catname}
         </h2>
       </div>
     </section>
     <section className="section is-blog">
       <div className="inner">
-        <div className="grid">
-          <div className="column is-mobile-12 is-desktop-3">
-            <div className="sidebar text is-center">
-              <h3>カテゴリ</h3>
-              <ul>
-
-              </ul>
-              <h3>アーカイブ</h3>
-              <ul>
-
-              </ul>
+        <div className="grid is-column-reverse-mobile-fablet is-space">
+          <div className="column is-mobile-12 is-desktop-3 is-padding-horizontal-lg">
+            <div className="sidebar text is-center is-space-xxl is-margin-top-xxxl-mobile-fablet">
+              <div className="box is-space">
+                <h3 className="text is-strong project-heading-3">カテゴリ</h3>
+                <ul>
+                  {data.allMicrocmsCategory.edges.map(({ node }) => (
+                    <li>
+                      <Link
+                        className="text is-sm"
+                        to={`/blog/category/${node.categorySlug}`}
+                      >
+                        {node.category}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="box is-space">
+                <h3 className="text is-strong project-heading-3">アーカイブ</h3>
+                <ul>
+                  <li>
+                    <Link
+                      className="text is-sm"
+                      to="/blog/archive/2020"
+                    >
+                      2020
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="text is-sm"
+                      to="/blog/archive/2021"
+                    >
+                      2021
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div className="column is-mobile-12 is-desktop-9">
+          <div className="column is-mobile-12 is-desktop-9 is-padding-horizontal-lg">
             <div className="blog-list-wrap is-space-xxxl">
               <div className="posts is-space-xxxl">
                 {data.allMicrocmsBlog.edges.map(({ node }) => (
@@ -54,7 +82,7 @@ export default ({ data,location,pageContext }) => (
                         </figure>
                       </div>
                       <div className="box is-content is-space-lg">
-                        <h3 className="text is-strong is-xxl">{node.title}</h3>
+                        <h3 className="text is-strong is-xl is-fablet-xxl">{node.title}</h3>
                         <aside className="box is-detail is-flex text is-sm is-space-right">
                           <time dateTime={node.publishDate}>
                             {node.publishDateJP}
@@ -63,7 +91,7 @@ export default ({ data,location,pageContext }) => (
                             <ul className="box is-flex is-space-right">
                               {node.category.map(cat => (
                                 <li className={cat.categorySlug} key={cat.id}>
-                                  <Link to={`/category/${cat.categorySlug}/`}>
+                                  <Link to={`/blog/category/${cat.categorySlug}/`}>
                                     {cat.category}
                                   </Link>
                                 </li>
@@ -90,8 +118,8 @@ export default ({ data,location,pageContext }) => (
                     <Link
                       to={
                         pageContext.currentPage === 2
-                          ? `/category/${pageContext.catslug}/`
-                          : `/category/${pageContext.catslug}/${pageContext.currentPage - 1}`
+                          ? `/blog/category/${pageContext.catslug}/`
+                          : `/blog/category/${pageContext.catslug}/${pageContext.currentPage - 1}`
                       }
                       rel="prev"
                     >
@@ -103,7 +131,7 @@ export default ({ data,location,pageContext }) => (
 
                 {!pageContext.isLast && (
                   <li className="next">
-                    <Link to={`/category/${pageContext.catslug}/${pageContext.currentPage + 1}/`} rel="next">
+                    <Link to={`/blog/category/${pageContext.catslug}/${pageContext.currentPage + 1}/`} rel="next">
                       <span>次のページ</span>
                       <FontAwesomeIcon icon={faChevronRight} />
                     </Link>
@@ -144,5 +172,13 @@ export const query = graphql`
         }
       }
     } 
+    allMicrocmsCategory {
+      edges {
+        node {
+          category
+          categorySlug
+        }
+      }
+    }
   }
 `

@@ -84,8 +84,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       createPage({
         path:
           i === 0
-            ? `/category/${node.fieldValue}/`
-            : `/category/${node.fieldValue}/${i + 1}/`,
+            ? `/blog/category/${node.fieldValue}/`
+            : `/blog/category/${node.fieldValue}/${i + 1}/`,
         component: path.resolve(`./src/templates/category-template.js`),
         context: {
           catid: blogresult.data.allMicrocmsCategory.nodes.find(
@@ -120,8 +120,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         createPage({
           path:
           i === 0
-            ? `/archive/${year}/`
-            : `/archive/${year}/${i + 1}/`,
+            ? `/blog/archive/${year}/`
+            : `/blog/archive/${year}/${i + 1}/`,
           component: path.resolve(`./src/templates/archive-template.js`),
           context: {
             displayYear: year,

@@ -21,7 +21,7 @@ export default ({data, location }) => (
         <h2 className="text is-strong is-center is-lg is-fablet-xl is-tablet-xxl">
           ”なんだかいい家だな”
         </h2>
-        <p className="text is-padding-horizontal-xxl is-center">
+        <p className="text is-padding-horizontal-xxl is-line-height-lg is-center">
           <span className="text is-inline-block">N’ｓクラフト設計室は、</span>
           <span className="text is-inline-block">春日井市にある</span>
           <span className="text is-inline-block">夫婦二人の</span>
@@ -39,10 +39,10 @@ export default ({data, location }) => (
         <div className="box text is-center is-space-xxl">
           <div className="grid is-space">
             <div className="column is-full">
-              <a href="../flow" className="button is-outline is-project-primary text is-strong">家づくりの流れ</a>
+              <a href="../flow/" className="button is-outline is-project-primary text is-strong">家づくりの流れ</a>
             </div>
             <div className="column is-full">
-              <a href="../fee" className="button is-outline is-project-primary text is-strong">設計料について</a>
+              <a href="../fee/" className="button is-outline is-project-primary text is-strong">設計料について</a>
             </div>
           </div>
         </div>
@@ -102,9 +102,9 @@ export default ({data, location }) => (
           <div className="column is-desktop-0 is-12">
             <div className="box is-margin-horizontal-lg">
               <p className="text">
-                1984年　岐阜県大垣市生まれ<br></br>
-                2006年　大同大学建築学部建築学科卒業<br></br>
-                2006年～愛知県内の住宅会社勤務<br></br>
+                1984年　　岐阜県大垣市生まれ<br></br>
+                2006年　　大同大学建築学部建築学科卒業<br></br>
+                2006年～　愛知県内の住宅会社勤務<br></br>
                 2019年6月 N’sクラフト設計室設立<br></br>
                 <br></br>
                 資格 / 一級建築士<br></br>
@@ -136,11 +136,11 @@ export default ({data, location }) => (
           <div className="column is-desktop-0 is-12">
             <div className="box is-margin-horizontal-lg">
               <p className="text">
-                1985年　愛知県岡崎市生まれ<br></br>
-                2008年　名古屋市立大学芸術工学部<br></br>
-                生活環境デザイン学科卒業<br></br>
-                2008年～愛知県内の住宅会社勤務<br></br>
-                2014年　結婚後2児の母となる<br></br>
+                1985年　　愛知県岡崎市生まれ<br></br>
+                2008年　　名古屋市立大学芸術工学部<br></br>
+                　　　　 　生活環境デザイン学科卒業<br></br>
+                2008年～　愛知県内の住宅会社勤務<br></br>
+                2014年　　結婚後2児の母となる<br></br>
                 2019年6月 N’sクラフト設計室設立<br></br>
                 <br></br>
                 資格 / 二級建築士<br></br>

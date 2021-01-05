@@ -34,17 +34,17 @@ export default ({ data,location,pageContext }) => {
       </section>
       <section className="section is-blog">
         <div className="inner">
-          <div className="grid">
-            <div className="column is-mobile-12 is-desktop-3">
-              <div className="sidebar text is-center is-space-xxl">
-                <div className="box">
-                  <h3 className="text is-strong">カテゴリ</h3>
+          <div className="grid is-column-reverse-mobile-fablet is-space">
+            <div className="column is-mobile-12 is-desktop-3 is-padding-horizontal-lg">
+              <div className="sidebar text is-center is-space-xxl is-margin-top-xxxl-mobile-fablet">
+                <div className="box is-space">
+                  <h3 className="text is-strong project-heading-3">カテゴリ</h3>
                   <ul>
                     {data.allMicrocmsCategory.edges.map(({ node }) => (
                       <li>
                         <Link
                           className="text is-sm"
-                          to={`../category/${node.categorySlug}`}
+                          to={`/blog/category/${node.categorySlug}`}
                         >
                           {node.category}
                         </Link>
@@ -52,26 +52,22 @@ export default ({ data,location,pageContext }) => {
                     ))}
                   </ul>
                 </div>
-                <div className="box">
-                  <h3 className="text is-strong">アーカイブ</h3>
+                <div className="box is-space">
+                  <h3 className="text is-strong project-heading-3">アーカイブ</h3>
                   <ul>
-                    { years }
-                    {/*{*/}
-                    {/*  years.map(({ node }) => (*/}
-                    {/*  <li>*/}
-                    {/*    <Link*/}
-                    {/*      className="text is-sm"*/}
-                    {/*      to={`../category/${node.year}`}*/}
-                    {/*    >*/}
-                    {/*    {node.year}*/}
-                    {/*  </Link>*/}
-                    {/*  </li>*/}
-                    {/*  ))}*/}
+                    <li>
+                      <Link
+                        className="text is-sm"
+                        to="/blog/archive/2021"
+                      >
+                        2021
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div className="column is-mobile-12 is-desktop-9">
+            <div className="column is-mobile-12 is-desktop-9 is-padding-horizontal-lg">
               <div className="blog-list-wrap is-space-xxxl">
                 <div className="posts is-space-xxxl">
                   {data.allMicrocmsBlog.edges.map(({ node }) => (
@@ -88,7 +84,7 @@ export default ({ data,location,pageContext }) => {
                           </figure>
                         </div>
                         <div className="box is-content is-space-lg">
-                          <h3 className="text is-strong is-xxl">{node.title}</h3>
+                          <h3 className="text is-strong is-xl is-fablet-xxl">{node.title}</h3>
                           <aside className="box is-detail is-flex text is-sm is-space-right">
                             <time dateTime={node.publishDate}>
                               {node.publishDateJP}
@@ -97,7 +93,7 @@ export default ({ data,location,pageContext }) => {
                               <ul className="box is-flex is-space-right">
                                 {node.category.map(cat => (
                                   <li className={cat.categorySlug} key={cat.id}>
-                                    <Link to={`/category/${cat.categorySlug}/`}>
+                                    <Link to={`/blog/category/${cat.categorySlug}/`}>
                                       {cat.category}
                                     </Link>
                                   </li>

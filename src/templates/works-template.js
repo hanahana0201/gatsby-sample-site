@@ -13,8 +13,8 @@ export default ({ data,location,pageContext,props }) => (
    class="is-light"
   >
     <SEO
-      pagetitle="ブログ"
-      pagedesc="ESSENTIALSのブログです"
+      pagetitle="しごと"
+      pagedesc="N'sクラフト設計室の実績一覧です。"
       pagepath={location.pathname}
     />
     <section className="section is-hero is-no-image">

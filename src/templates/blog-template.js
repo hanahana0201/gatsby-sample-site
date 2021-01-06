@@ -17,12 +17,11 @@ export default ({ data,location,pageContext }) => {
   )
   ));
 
-
   return (
     <Layout>
       <SEO
-        pagetitle="ブログ"
-        pagedesc="ESSENTIALSのブログです"
+        pagetitle="日々のこと"
+        pagedesc="N'sクラフト設計室のブログです"
         pagepath={location.pathname}
       />
       <section className="section is-hero is-no-image">

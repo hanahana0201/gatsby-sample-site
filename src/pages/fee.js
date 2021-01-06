@@ -9,8 +9,8 @@ import SEO from "../components/common/seo"
 export default ({data, location }) => (
   <Layout>
     <SEO
-      pagetitle="ESSENTIALSについて"
-      pagedesc="食べ物についての情報を発信しているサイトです。"
+      pagetitle="設計料について"
+      pagedesc="N'sクラフト設計室の設計料について説明しています。"
       pagepath={location.pathname}
       pageimg={data.fee.childImageSharp.original.src}
       pageimgw={data.fee.childImageSharp.original.width}

@@ -9,8 +9,8 @@ import SEO from "../components/common/seo"
 export default ({data, location }) => (
   <Layout>
     <SEO
-      pagetitle="ESSENTIALSについて"
-      pagedesc="食べ物についての情報を発信しているサイトです。"
+      pagetitle="家づくりの流れ"
+      pagedesc="N'sクラフト設計室の家づくりの流れを説明しています。"
       pagepath={location.pathname}
       pageimg={data.flow.childImageSharp.original.src}
       pageimgw={data.flow.childImageSharp.original.width}

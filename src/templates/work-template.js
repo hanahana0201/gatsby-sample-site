@@ -9,6 +9,7 @@ import parse from "rehype-parse"
 import rehypeReact from "rehype-react"
 
 import SEO from "../components/common/seo"
+import htmlToText from "html-to-text"
 
 
 const renderAst = new rehypeReact({
@@ -17,7 +18,7 @@ const renderAst = new rehypeReact({
   components: {},
 }).Compiler
 
-export default ({data}) => {
+export default ({ data, location }) => {
   const htmlAst = unified()
     .use(parse, { fragment: true })
     .parse(data.microcmsWork.description)
@@ -25,9 +26,13 @@ export default ({data}) => {
   return (
     <LayoutLight>
       <SEO
-        pagetitle="ブログ"
-        pagedesc="ESSENTIALSのブログです"
-        // pagepath={location.pathname}
+        pagetitle={data.microcmsWork.title}
+        pagedesc={`${htmlToText
+        .fromString(data.microcmsWork.description, {
+          ignoreImage: true,
+          ignoreHref: true,
+        }).slice(0, 70)}…`}
+        pagepath={location.pathname}
       />
       <section className="section is-hero-full">
         <div className="box">

@@ -12,7 +12,6 @@ export default props => {
           description
           siteUrl
           locale
-          fbappid
         }
       }
     }
@@ -49,8 +48,6 @@ export default props => {
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={data.site.siteMetadata.locale} />
-      <meta property="og:app_id" content={data.site.siteMetadata.fbappid} />
-
       <meta property="og:image" content={imgurl} />
       <meta property="og:image:width" content={imgw} />
       <meta property="og:image:height" content={imgh} />

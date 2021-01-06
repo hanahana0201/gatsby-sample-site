@@ -9,8 +9,8 @@ import SEO from "../components/common/seo"
 export default ({data, location }) => (
   <Layout>
     <SEO
-      pagetitle="ESSENTIALSについて"
-      pagedesc="食べ物についての情報を発信しているサイトです。"
+      pagetitle="お問い合わせ"
+      pagedesc="N'sクラフト設計室にご質問・ご相談の方は、お気軽にお電話ください。メールでのご質問・ご相談は下記のメールアドレスまでご連絡ください。内容を確認後、お返事いたします。メールの確認作業に時間を要する場合がございますので、お急ぎのお客様はお電話にてお問い合わせ頂くことをおすすめいたします。"
       pagepath={location.pathname}
       pageimg={data.contact.childImageSharp.original.src}
       pageimgw={data.contact.childImageSharp.original.width}

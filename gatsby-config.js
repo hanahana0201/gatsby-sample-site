@@ -13,7 +13,6 @@ module.exports = {
     lang: `ja`,
     siteUrl: `https://craft-sekkei.com`,
     locale: `ja_JP`,
-    fbappid: `XXXXXXXXXXVXXXXXXXXXXXXXXXXX`,
   },
   plugins: [
     `gatsby-plugin-sass`,

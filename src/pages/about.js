@@ -9,8 +9,7 @@ import SEO from "../components/common/seo"
 export default ({data, location }) => (
   <Layout>
     <SEO
-      pagetitle="ESSENTIALSについて"
-      pagedesc="食べ物についての情報を発信しているサイトです。"
+      pagetitle="わたしたち"
       pagepath={location.pathname}
     />
     <section className="section is-hero is-no-image">

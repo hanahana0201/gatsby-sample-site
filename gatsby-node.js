@@ -45,18 +45,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  blogresult.data.allMicrocmsBlog.edges.forEach(({ node,next,previous }) => {
-    createPage({
-      path: `/blog/post/${node.slug}`,
-      component: path.resolve(`./src/templates/blogpost-template.js`),
-      context: {
-        id: node.id,
-        next,
-        previous,
-      },
-    })
-  })
-
   const blogPostPerPage = 5 //1ページに表示する記事の数
   const blogPosts = blogresult.data.allMicrocmsBlog.edges.length //記事の総数
   const blogPages = Math.ceil(blogPosts / blogPostPerPage) //記事一覧ページの総数

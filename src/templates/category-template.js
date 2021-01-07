@@ -48,14 +48,6 @@ export default ({ data,location,pageContext }) => (
                   <li>
                     <Link
                       className="text is-sm"
-                      to="/blog/archive/2020"
-                    >
-                      2020
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="text is-sm"
                       to="/blog/archive/2021"
                     >
                       2021
